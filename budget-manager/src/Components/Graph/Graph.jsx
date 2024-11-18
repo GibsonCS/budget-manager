@@ -1,19 +1,23 @@
+/* eslint-disable react/prop-types */
 
 import { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
 
-export default function Graph() {
+export default function Graph({ dBudget }) {
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
 
     useEffect(() => {
+        const categories = dBudget.map((c) => c.Category)
+        const amounts = dBudget.map((a) => a.Amount)
+
         const data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: categories,
             datasets: [
                 {
-                    label: 'Money',
+                    label: 'Amount',
                     backgroundColor: '#00c606',
-                    data: [700, 59, 80, 81, 56, 55, 40]
+                    data: amounts
                 },
                 {
                     label: 'Total Spent',
@@ -22,6 +26,7 @@ export default function Graph() {
                 }
             ]
         };
+        data.labels = categories
         const options = {
             indexAxis: 'y',
             maintainAspectRatio: false,
@@ -60,7 +65,7 @@ export default function Graph() {
 
         setChartData(data)
         setChartOptions(options);
-    }, []);
+    }, [dBudget]);
 
     return (
         <div className="card ">
