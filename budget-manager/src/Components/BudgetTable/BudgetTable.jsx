@@ -1,11 +1,16 @@
-import { useState } from "react"
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react"
 
-const BugdgetTable = () => {
+const BugdgetTable = ({ data }) => {
     const [rows, setRows] = useState([])
 
     const addRow = (category, amount) => {
         setRows([...rows, { category, amount }]);
     }
+
+    useEffect(() => {
+        setRows(data)
+    }, [data])
 
     return (
         <>
@@ -19,8 +24,8 @@ const BugdgetTable = () => {
                 <tbody>
                     {rows.map((r, index) => (
                         <tr key={index}>
-                            <td className="px-4 py-2 border-r border-b">{r.category}</td>
-                            <td className="px-4 py-2 border-b">{r.amount}</td>
+                            <td className="px-4 py-2 border-r border-b">{r.Category}</td>
+                            <td className="px-4 py-2 border-b">{r.Amount}</td>
                         </tr>
                     ))}
                 </tbody>
