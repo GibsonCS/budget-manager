@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [budgetData, setBudgetData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getBudget = async () => {
@@ -16,7 +17,7 @@ function App() {
       })
       const data = await response.json();
       setBudgetData(data);
-
+      setLoading(false)
     }
     getBudget();
   }, [data])
@@ -26,6 +27,9 @@ function App() {
   return (
     <section className="flex justify-around p-12 flex-1">
       <section className="w-1/2">
+        {loading &&
+          <p>Carregando...</p>
+        }
         <Graph dBudget={budgetData} />
       </section>
       <section>
