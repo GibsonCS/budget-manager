@@ -8,21 +8,22 @@ export default function Graph({ dBudget }) {
     const [chartOptions, setChartOptions] = useState({});
 
     useEffect(() => {
-        const categories = dBudget.map((c) => c.Category)
-        const amounts = dBudget.map((a) => a.Amount)
+        const categories = dBudget.map((c) => c.category)
+        const cost = dBudget.map((a) => a.cost)
+        const planned = dBudget.map((p) => p.planned)
 
         const data = {
             labels: categories,
             datasets: [
                 {
-                    label: 'Amount',
+                    label: 'Cost',
                     backgroundColor: '#00c606',
-                    data: amounts
+                    data: planned
                 },
                 {
                     label: 'Total Spent',
                     backgroundColor: '#a70000',
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    data: cost
                 }
             ]
         };

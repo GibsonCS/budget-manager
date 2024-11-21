@@ -12,20 +12,25 @@ const BugdgetTable = ({ data }) => {
         setRows(data)
     }, [data])
 
+    const formatToBRL = (value) => {
+        return value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+    }
+
     return (
         <>
             <table className="table-auto border-collapse  border-t border-r border-l w-full text-center">
                 <thead>
                     <tr>
-                        <th className="px-4 py-2 border-b ">Category</th>
-                        <th className="px-4 py-2 border-b ">Amount</th>
+                        <th className="px-4 py-2 border-b ">All costs</th>
+                        <th className="px-4 py-2 border-b ">Date</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     {rows.map((r, index) => (
                         <tr key={index}>
-                            <td className="px-4 py-2 border-r border-b">{r.Category}</td>
-                            <td className="px-4 py-2 border-b">{r.Amount}</td>
+                            <td className="px-4 py-2 border-r border-b">{formatToBRL(r.cost)}</td>
+                            <td className="px-4 py-2 border-r border-b">{formatToBRL(r.date)}</td>
                         </tr>
                     ))}
                 </tbody>

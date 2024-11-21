@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { data } from "autoprefixer";
 import BugdgetTable from "./Components/BudgetTable/BudgetTable";
 import Filter from "./Components/Filter/Filter";
@@ -9,6 +10,8 @@ import { useEffect, useState } from "react";
 function App() {
   const [budgetData, setBudgetData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filtedDate, setFiltedDate] = useState([])
+  const [filter, setFilter] = useState({ start: '', end: '' })
 
   useEffect(() => {
     const getBudget = async () => {
@@ -17,12 +20,29 @@ function App() {
       })
       const data = await response.json();
       setBudgetData(data);
+      setFiltedDate(data)
       setLoading(false)
     }
     getBudget();
   }, [data])
 
+  const convertDateToIso = (dateString) => {
+    const [day, month, year] = dateString.split('/');
+    return `${year}-${month}-${day}`;
+  }
 
+  useEffect(() => {
+    if (filter.start && filter.end) {
+      const startDate = new Date(`${filter.start}T00:00:00`);
+      const endDate = new Date(`${filter.end}T23:59:59`); // Incluir até o final do dia
+
+      const fils = budgetData.filter((item) => {
+        const date = new Date(`${convertDateToIso(item.date)}T00:00:00`)
+        return date >= startDate && date <= endDate;
+      });
+      setFiltedDate(fils)
+    }
+  }, [filter, budgetData]);
 
   return (
     <section className="flex justify-around p-12 flex-1">
@@ -30,14 +50,13 @@ function App() {
         {loading &&
           <p>Carregando...</p>
         }
-        <Graph dBudget={budgetData} />
+        <Graph dBudget={filtedDate} />
+        <Filter setFilter={setFilter} />
       </section>
       <section>
-        <Filter />
         <BugdgetTable data={budgetData} />
       </section>
     </section>
   );
 }
-
 export default App
