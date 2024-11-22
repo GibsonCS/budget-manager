@@ -17,7 +17,7 @@ const Filter = ({ setFilter }) => {
                 <input onChange={(e) => setStart(e.target.value)} className="rounded-md text-sky-950" type="date" />
                 <label htmlFor="end">End</label>
                 <input onChange={(e) => setEnd(e.target.value)} className="rounded-md text-sky-950" type="date" />
-                <button onClick={aplyFilter} className="border pr-2 pl-2 pb-0.5 ml-2 rounded-lg">Find</button>
+                <button className="flex w-max text-center justify-center border-gray-700 hover:shadow-md hover:shadow-slate-100 hover:scale-105 border bg-gradient-to-bl from-gray-900 to-gray-500  p-1 rounded-md" onClick={() => aplyFilter()}>Find</button>
             </div>
         </div>
     )
