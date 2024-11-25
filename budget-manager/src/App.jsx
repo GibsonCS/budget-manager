@@ -45,8 +45,8 @@ function App() {
   }, [filter, budgetData]);
 
   return (
-    <section className="flex justify-around p-12 flex-1">
-      <section className="w-1/2">
+    <section className="sm:flex flex-wrap justify-around p-12 flex-1">
+      <section className="sm:w-1/2 w-full">
         {loading &&
           <p>Carregando...</p>
         }
