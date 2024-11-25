@@ -4,6 +4,13 @@ import App from "./App";
 
 const AppRouter = () => {
     return (
+        // <Router basename='/budget-manager'>
+        //     <Routes>
+        //         <Route element={<Layout />}>
+        //             <Route path="/" element={<App />} />
+        //         </Route>
+        //     </Routes>
+        // </Router>
         <Router>
             <Routes>
                 <Route element={<Layout />}>
