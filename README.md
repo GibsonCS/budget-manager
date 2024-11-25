@@ -39,7 +39,9 @@ The project is functional, however, in progress and available in [budget-manager
 
 ## **Known issues**
 
-Still to improve the layout style in add row function *(Modal)*
+- [ ] Still to improve the layout style in add row function *(Modal)*
+- [ ] Start date insertion greater than end date.
+- [ ] Non-standard date formate when incluiding row
 ***
 
 *The all project was build by me* 🙃
