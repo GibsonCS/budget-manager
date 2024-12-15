@@ -6,6 +6,7 @@ import Filter from "./Components/Filter/Filter";
 import Graph from './Components/Graph/Graph'
 import "./index.css";
 import { useEffect, useState } from "react";
+import { Github } from "lucide-react"
 
 function App() {
   const [budgetData, setBudgetData] = useState([]);
@@ -55,6 +56,7 @@ function App() {
       </section>
       <section>
         <BugdgetTable data={budgetData} />
+        <a className="flex gap-2 justify-center flex-row-reverse" href='https://github.com/GibsonCS/budget-manager' target='_blanck'>Source code<Github /></a>
       </section>
     </section>
   );
