@@ -15,21 +15,23 @@ Whith this project, people will can control your finances  through catogories an
 * **Tailwind:** This popular framework is used by many developers to build modern and responsive web applications and user interfaces.
 
 ## *Demo*
-![](./budget-manager/gifs/demo.gif)
+https://github.com/user-attachments/assets/f1acd3fa-65c5-4289-843e-96238475527c
 ***
 
+
+
 ## ***To run this project***
-    1. Install the NodeJS v20 (LTS)
+1. Install the NodeJS v20 (LTS)
 
-    2. Use git clone https://github.com/GibsonCS/budget-manager.git to clone this repository
+2. Use ``git clone https://github.com/GibsonCS/budget-manager.git`` to clone this repository
 
-    3. Navigate to the budget-manager folder using cd budget-manager
+3. Navigate to the budget-manager folder using ``cd budget-manager``
 
-    4. Run npm i to install all dependencies from package.json
+4. Run ``npm i`` to install all dependencies from package.json
 
-    5. Run npm run dev to execute.
+5. Run ``npm run dev`` to execute.
 
-    6. The application will be available in http://localhost:5173/
+6. The application will be available in ``http://localhost:5173/``
 
 ## **Project stage**
 
@@ -37,7 +39,9 @@ The project is functional, however, in progress and available in [budget-manager
 
 ## **Known issues**
 
-Still to improve the layout style in add row function *(Modal)*
+- [ ] Still to improve the layout style in add row function *(Modal)*
+- [ ] Start date insertion greater than end date.
+- [ ] Non-standard date formate when incluiding row
 ***
 
 *The all project was build by me* 🙃
